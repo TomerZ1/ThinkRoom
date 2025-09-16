@@ -1,0 +1,390 @@
+/* === Dashboard Layout === */
+.dashboard {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: radial-gradient(circle at 20% 20%, rgba(79,70,229,0.25), transparent 40%),
+              radial-gradient(circle at 80% 30%, rgba(147,51,234,0.25), transparent 40%),
+              radial-gradient(circle at 50% 80%, rgba(59,130,246,0.25), transparent 40%);
+  background-color: #0f172a;
+  background-size: cover;
+  background-position: 0% 0%, 100% 0%, 50% 100%;
+  color: #f8fafc;
+}
+
+.dashboard-content {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+.tab-content {
+  position: relative;
+  width: 100%;
+  min-height: 200px; /* ensures space even when one panel hidden */
+}
+
+.tab-panel {
+  opacity: 0;
+  transform: translateX(20px);
+  transition: all 0.4s ease;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.tab-panel.active {
+  opacity: 1;
+  transform: translateX(0);
+  position: relative;
+  pointer-events: auto;
+}
+
+/* === Toolbar === */
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background-color: #111827; /* dark gray */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.toolbar-left {
+  display: flex;
+  align-items: center;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #3b82f6; /* blue logo text */
+}
+
+.toolbar-logo {
+  width: 40px;
+  height: 40px;
+  margin-right: 0.5rem;
+  box-shadow: 0 0 6px rgba(59,130,246,0.6);
+}
+
+.toolbar-left span {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.4rem;
+  background: linear-gradient(90deg, #ffffff, #dbeafe, #e9d5ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 2px 6px rgba(255,255,255,0.4);
+  letter-spacing: 0.03em;
+}
+
+.toolbar-center {
+  display: flex;
+  gap: 1rem;
+}
+
+.toolbar-center button {
+  background: none;
+  border: none;
+  color: #f8fafc;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.toolbar-center button:hover {
+  background: rgba(59, 130, 246, 0.2);
+}
+
+/* === Toolbar Nav Buttons === */
+.nav-btn {
+  background: none;
+  border: none;
+  color: #cbd5e1;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.nav-btn:hover {
+  color: #ffffff;
+  background: rgba(59,130,246,0.15);
+}
+
+.nav-btn.active {
+  color: #ffffff;
+  background: linear-gradient(135deg, rgba(59,130,246,0.3), rgba(147,51,234,0.3));
+  border: 1px solid rgba(59,130,246,0.5);
+  box-shadow: 0 0 10px rgba(59,130,246,0.4);
+}
+
+.toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logout-btn {
+  background: linear-gradient(135deg, rgba(239,68,68,0.3), rgba(190,18,60,0.3));
+  border: 1px solid rgba(239,68,68,0.5);
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 0 8px rgba(239,68,68,0.4);
+}
+
+.logout-btn:hover {
+  background: linear-gradient(135deg, rgba(239,68,68,0.5), rgba(190,18,60,0.5));
+  box-shadow: 0 0 12px rgba(239,68,68,0.6);
+}
+
+/* === WelcomeBox === */
+.welcome-box {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.welcome-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  margin-bottom: 0.5rem;
+}
+
+.welcome-subtitle {
+  font-size: 1rem;
+  color: #cbd5e1;
+}
+
+/* === ActionBox === */
+.action-box {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, rgba(17,24,39,0.95), rgba(31,41,55,0.95));
+  border: 1px solid rgba(59,130,246,0.3);
+  border-radius: 1.5rem;
+  box-shadow: 0 0 15px rgba(59,130,246,0.3), 0 0 25px rgba(147,51,234,0.2);
+  overflow: hidden;
+  margin-bottom: 2rem;
+  max-width: 25rem;
+  width: 25rem;
+  margin: 0 auto;   /* ensures center */
+}
+
+.action-box > * {
+  padding: 1.5rem;
+}
+
+
+/* Divider between Create and Join cards */
+.divider {
+  position: relative;
+  text-align: center;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #3b82f6, transparent);
+  animation: glowPulse 2.5s ease-in-out infinite;
+}
+
+.divider::before {
+  left: 0;
+}
+
+.divider::after {
+  right: 0;
+}
+
+.divider span {
+  position: relative;
+  padding: 0 1rem;
+  font-weight: bold;
+  color: #3b82f6;
+  background: linear-gradient(135deg, rgba(17,24,39,0.95), rgba(31,41,55,0.95));
+  border-radius: 0.5rem;
+}
+
+.action-card {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.action-card h3 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #f8fafc;
+  margin-bottom: 1rem;
+}
+
+.action-card .smart-field {
+  width: 100%;
+  max-width: 15rem;
+}
+
+.action-card button {
+  width: auto;
+  min-width: 12rem;
+}
+
+/* === SessionList === */
+.session-list {
+  width: 1000px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.session-item {
+  background: linear-gradient(135deg, rgba(17,24,39,0.95), rgba(31,41,55,0.95));
+  border: 1px solid rgba(59,130,246,0.3);
+  border-radius: 1rem;
+  padding: 1rem 1.5rem;
+  display: grid;
+  grid-template-columns: 2fr 1.5fr 1fr auto auto;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 0 12px rgba(59,130,246,0.2), 0 0 20px rgba(147,51,234,0.15);
+  transition: all 0.4s ease;
+  max-height: 200px;
+  opacity: 1;
+  overflow: hidden;
+}
+
+.session-item.hide {
+  max-height: 0;
+  opacity: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-shadow: none;
+}
+
+.session-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 16px rgba(59,130,246,0.3), 0 0 28px rgba(147,51,234,0.2);
+}
+
+.session-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.session-member {
+  font-size: 0.9rem;
+  color: #e5e7eb;
+}
+
+.session-code {
+  font-size: 0.85rem;
+  font-family: monospace;
+  color: #93c5fd;
+  background: rgba(59,130,246,0.15);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+  text-align: center;
+}
+
+.session-delete-btn,
+.session-join-btn {
+  padding: 0.4rem 0.9rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.session-delete-btn {
+  background: linear-gradient(135deg, rgba(239,68,68,0.8), rgba(190,18,60,0.8));
+  color: #fff;
+  box-shadow: 0 0 6px rgba(239,68,68,0.5);
+}
+
+.session-delete-btn:hover {
+  background: linear-gradient(135deg, rgba(239,68,68,1), rgba(190,18,60,1));
+  box-shadow: 0 0 10px rgba(239,68,68,0.7);
+}
+
+.session-join-btn {
+  background: linear-gradient(135deg, rgba(59,130,246,0.8), rgba(147,51,234,0.8));
+  color: #fff;
+  box-shadow: 0 0 6px rgba(59,130,246,0.5);
+}
+
+.session-join-btn:hover {
+  background: linear-gradient(135deg, rgba(59,130,246,1), rgba(147,51,234,1));
+  box-shadow: 0 0 10px rgba(59,130,246,0.7);
+}
+
+/* === Session Search Bar === */
+.session-search-container {
+  display: flex;
+  gap: 1rem;
+  margin: 0.5rem 0 1.5rem 0;
+  max-width: 700px;
+}
+
+.session-search {
+  flex: 1;
+  padding: 0.6rem 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(59,130,246,0.4);
+  background: rgba(17,24,39,0.9);
+  color: #f8fafc;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  width: 500px;
+}
+
+
+.session-search:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 8px rgba(59,130,246,0.6);
+}
+
+/* === Session List Container === */
+.session-list-container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    opacity: 0.6;
+    box-shadow: 0 0 8px rgba(59,130,246,0.6);
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 16px rgba(59,130,246,1);
+  }
+}

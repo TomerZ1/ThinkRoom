@@ -1,0 +1,56 @@
+.auth-link-container {
+  text-align: center;
+  color: #888888;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+.auth-link-container a {
+  color: #3b82f6;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.auth-link-container a:hover {
+  color: #60a5fa;
+}
+
+.auth-layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: radial-gradient(circle at 20% 20%, rgba(79,70,229,0.3), transparent 40%),
+              radial-gradient(circle at 80% 30%, rgba(147,51,234,0.3), transparent 40%),
+              radial-gradient(circle at 50% 80%, rgba(59,130,246,0.3), transparent 40%);
+  background-color: #0f172a;
+  background-size: cover;
+  background-position: 0% 0%, 100% 0%, 50% 100%;
+}
+
+.auth-card {
+  max-width: 28rem;
+  width: 100%;
+  background: linear-gradient(135deg, rgba(17,24,39,0.95), rgba(31,41,55,0.95));
+  border: 1px solid rgba(59,130,246,0.3);
+  box-shadow: 0 0 15px rgba(59,130,246,0.3), 0 0 25px rgba(147,51,234,0.2);
+  padding: 1.5rem;
+  border-radius: 3rem;
+  margin: 0 auto;
+}
+
+.auth-title {
+  color: #ffffff;
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  /* Gradient text effect */
+  background: linear-gradient(90deg, #ffffff 0%, #dbeafe 50%, #e9d5ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  /* Letter spacing for elegance */
+  letter-spacing: 0.04em;
+  /* Soft glowing text-shadow for readability */
+  text-shadow: 0 2px 6px rgba(255,255,255,0.5), 0 1px 1px rgba(255,255,255,0.3);
+}

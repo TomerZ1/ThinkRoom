@@ -1,0 +1,271 @@
+/* === Shared Component Styles === */
+
+/* Inputs */
+.smart-field {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.smart-field input {
+  width: 100%;
+  padding: 0.75rem;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 0.5rem;
+  color: white;
+}
+
+.smart-field label {
+  position: absolute;
+  left: 0.75rem;
+  top: 0.75rem;
+  color: #94a3b8;
+  transition: all 0.2s ease;
+  pointer-events: none;
+  background-color: transparent;
+}
+
+.smart-field input:focus + label,
+.smart-field input:not(:placeholder-shown) + label {
+  top: -0.5rem;
+  left: 0.5rem;
+  font-size: 0.75rem;
+  color: #3b82f6;
+  background-color: #1e293b;
+}
+
+/* Primary Button */
+.btn-neural {
+  width: 100%;
+  padding: 0.75rem;
+  background: linear-gradient(135deg, #4f46e5, #3b82f6, #9333ea);
+  background-size: 200% 200%;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 0.9rem;
+  cursor: pointer;
+  transition: background-position 0.5s ease, transform 0.2s ease;
+  box-shadow: 0 0 10px rgba(79, 70, 229, 0.5), 0 0 20px rgba(147, 51, 234, 0.5);
+  animation: gradientMove 5s ease infinite;
+  margin-bottom: 1rem;
+}
+
+.btn-neural:hover {
+  background-position: right center;
+  transform: scale(1.02);
+  box-shadow: 0 0 15px rgba(79, 70, 229, 0.8), 0 0 30px rgba(147, 51, 234, 0.8);
+}
+
+/* Secondary Button */
+.btn-secondary {
+  width: 100%;
+  padding: 0.75rem;
+  background: #1e293b;
+  color: #94a3b8;
+  font-weight: bold;
+  border: 1px solid #334155;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: #334155;
+  color: white;
+}
+
+/* Alert messages */
+.alert {
+  padding: 0.4rem;
+  border-radius: 0.9rem;
+  margin: 0.5rem 2rem 1rem 2rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* Alert messages with gradient backgrounds and glow */
+.alert-error {
+  background: linear-gradient(135deg, #b91c1c, #ef4444, #be123c);
+  background-size: 200% 200%;
+  color: #ffffff;
+  border: 1px solid #991b1b;
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.5), 0 0 20px rgba(190, 18, 60, 0.5);
+  animation: alertPulseRed 2.5s infinite, gradientMove 5s ease infinite;
+}
+
+.alert-success {
+  background: linear-gradient(135deg, #059669, #10b981, #06b6d4);
+  background-size: 200% 200%;
+  color: #ffffff;
+  border: 1px solid #047857;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.5), 0 0 20px rgba(6, 182, 212, 0.5);
+  animation: alertPulseGreen 2.5s infinite, gradientMove 5s ease infinite;
+}
+
+@keyframes alertPulseRed {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(239, 68, 68, 0.5), 0 0 20px rgba(190, 18, 60, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.8), 0 0 40px rgba(190, 18, 60, 0.8);
+  }
+}
+
+@keyframes alertPulseGreen {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.5), 0 0 20px rgba(6, 182, 212, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.8), 0 0 40px rgba(6, 182, 212, 0.8);
+  }
+}
+
+/* Loader spinner */
+.loader {
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 3px solid white;
+  border-top: 3px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes gradientMove {
+  0% { background-position: left center; }
+  50% { background-position: right center; }
+  100% { background-position: left center; }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.form-container {
+  max-width: 28rem;
+  margin: 0 auto;
+  padding: 1.5rem;
+
+  border-radius: 0.75rem;
+  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); */
+}
+
+
+/* === Headings === */
+h2 {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+
+/* === Orbit Logo Feature Styles === */
+.orbit-container {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  margin: 1rem auto 1.5rem auto;
+  border-radius: 50%;
+  background: radial-gradient(circle at 60% 40%, rgba(99,102,241,0.25) 0%, rgba(59,130,246,0.12) 70%, transparent 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+.orbit-container::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  width: 102px;
+  height: 102px;
+  border-radius: 50%;
+  border: 3px solid rgba(99,102,241,0.18);
+  opacity: 0.6;
+  box-sizing: border-box;
+  animation: orbitPulse 3s ease-in-out infinite;
+  z-index: 0;
+  transform-origin: center;
+  box-shadow: 0 0 12px rgba(99,102,241,0.4);
+}
+
+.orbit-container::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  border: 2px solid rgba(59,130,246,0.18);
+  opacity: 0.6;
+  box-sizing: border-box;
+  animation: orbitPulse 3s ease-in-out infinite 1.5s;
+  z-index: 1;
+  transform-origin: center;
+  box-shadow: 0 0 10px rgba(59,130,246,0.4);
+}
+
+.orbit-logo {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.orbit-logo img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+
+@keyframes orbitPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+/* === Avatar Component === */
+.avatar {
+  border-radius: 50%;
+  background-color: #3b82f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  overflow: hidden;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.avatar-initials {
+  font-size: 1rem;
+}

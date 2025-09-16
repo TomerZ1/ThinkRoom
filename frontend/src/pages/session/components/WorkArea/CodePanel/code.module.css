@@ -1,0 +1,10 @@
+.code-panel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #0b1020; /* subtle */
+  border-radius: 0.75rem;
+  overflow: hidden;
+  /* if you need a min height for this area: */
+  /* min-height: 420px; */
+}

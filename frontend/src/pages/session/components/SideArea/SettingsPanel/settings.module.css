@@ -1,0 +1,170 @@
+.settings-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;                 /* match Materials spacing */
+  padding: 2rem 1.5rem;
+  background: #23263a;
+  border-radius: 1.2rem;
+  box-shadow: 0 2px 16px 0 rgba(0,0,0,0.16);
+  width: 100%;
+  height: 95%;
+  color: #e5e7eb;
+
+  box-sizing: border-box;
+  max-width: 100%;
+  min-height: 0;
+  scrollbar-gutter: stable;  /* prevents width jump when scrollbars appear */
+  /* overflow-y: auto;       // uncomment only if the settings panel itself should scroll */
+}
+
+.panel-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin: 0 0 1rem 0;
+}
+
+/* Sections grid (stack on small, two columns on wide) */
+.sections {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+
+/* Card container per section */
+.section-card {
+  background: linear-gradient(135deg, rgba(17, 24, 39, 0.95), rgba(31, 41, 55, 0.95));
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 0.9rem;
+  padding: 1rem 1rem 0.6rem 1rem;
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.25), 0 0 18px rgba(147, 51, 234, 0.15);
+}
+
+.section-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin: 0 0 0.6rem 0;
+}
+
+/* Form layout */
+.form {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.label {
+  font-size: 0.95rem;
+  color: #cbd5e1;
+}
+
+/* Inputs */
+.select,
+.range,
+.text,
+.color-input {
+  background: #181a2a;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 0.6rem;
+  padding: 0.5rem 0.6rem;
+  font-size: 0.95rem;
+  outline: none;
+  width: 100%;
+}
+
+.select:focus,
+.range:focus,
+.text:focus {
+  box-shadow: 0 0 0 3px rgba(139,92,246,0.25);
+  border-color: rgba(139,92,246,0.6);
+}
+
+/* Color input as round swatch */
+.color-input {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.color-input::-webkit-color-swatch-wrapper { padding: 0; border-radius: 50%; }
+.color-input::-webkit-color-swatch { border: 1px solid rgba(255,255,255,0.25); border-radius: 50%; }
+.color-input::-moz-color-swatch { border: 1px solid rgba(255,255,255,0.25); border-radius: 50%; }
+
+/* Range with value */
+.range-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.range {
+  width: 100%;
+  accent-color: #8b5cf6; /* thumb color */
+}
+.range-value {
+  min-width: 48px;
+  text-align: right;
+  color: #e5e7eb;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* Pretty toggle */
+.toggle {
+  position: relative;
+  width: 46px;
+  height: 26px;
+  display: inline-block;
+}
+.toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 999px;
+  transition: background 0.2s, border-color 0.2s;
+}
+.toggle-slider::before {
+  content: "";
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+  box-shadow: 0 2px 8px rgba(59,130,246,0.35);
+}
+.toggle input:checked + .toggle-slider {
+  background: rgba(139,92,246,0.25);
+  border-color: rgba(139,92,246,0.6);
+}
+.toggle input:checked + .toggle-slider::before {
+  transform: translate(20px, -50%);
+}
+
+/* Focus states for accessibility */
+.select:focus-visible,
+.range:focus-visible,
+.color-input:focus-visible,
+.toggle input:focus-visible + .toggle-slider {
+  outline: 2px solid rgba(139,92,246,0.6);
+  outline-offset: 2px;
+}

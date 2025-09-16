@@ -1,0 +1,66 @@
+.video-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: #23263a;
+  border-radius: 1rem;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.16);
+  height: 100%;
+}
+
+.video-stage {
+  position: relative;
+  flex: 1;
+  background: #111827;
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.remote-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #0b1020;
+}
+
+.local-video {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 160px;
+  height: 96px;
+  object-fit: cover;
+  border: 2px solid rgba(255,255,255,0.2);
+  border-radius: 0.5rem;
+  background: #0b1020;
+}
+
+.controls {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.btn {
+  padding: 0.5rem 0.9rem;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 0.6rem;
+  background: rgba(255,255,255,0.06);
+  color: #fff;
+  cursor: pointer;
+}
+.btn:on, .on { background: rgba(34,197,94,0.2); border-color: rgba(34,197,94,0.4); }
+.off { background: rgba(239,68,68,0.15); border-color: rgba(239,68,68,0.35); }
+
+.btn-danger {
+  padding: 0.5rem 0.9rem;
+  border: 1px solid rgba(239,68,68,0.5);
+  border-radius: 0.6rem;
+  background: rgba(239,68,68,0.2);
+  color: #fff;
+  cursor: pointer;
+}
+
+.status { margin-left: auto; color: #94a3b8; font-size: 0.9rem; }
+.error { margin-left: 0.5rem; color: #f87171; font-size: 0.9rem; }
