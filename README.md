@@ -1,6 +1,6 @@
 # ThinkRoom 🎓💻
 
-A **1:1 tutoring platform** built for ** Computer Science private lessons**.  
+A **1:1 tutoring platform** built for ** Computer Science private lessons **.  
 ThinkRoom enables students and tutors to collaborate in real time with chat, code editor, sketch canvas, materials library, and integrated video/audio calls.
 
 ---
