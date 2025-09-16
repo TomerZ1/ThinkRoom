@@ -51,3 +51,5 @@ ThinkRoom enables students and tutors to collaborate in real time with chat, cod
 ### Run with Docker
 ```bash
 docker compose up -d
+
+*not finished yet
